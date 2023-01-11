@@ -1,5 +1,6 @@
 package com.example.demo.andi;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,27 +11,15 @@ import java.util.List;
 @RequestMapping(path="andis")
 public class AndiController {
 
+    private final AndiService andiService;
+
+    @Autowired//Anything we pass to AndiService should be injected
+    public AndiController(AndiService andiService){
+//        this.andiService = new AndiService();//this is not a good practice
+        this.andiService =andiService;
+    }
     @GetMapping()
     public List<Andi> andis(){
-        return List.of(
-                new Andi(
-                        1,
-                        "Musa",
-                        "Yuksel",
-                        "Jemison",
-                        1.1,
-                        "PD"
-
-                ),
-                new Andi(
-                        2,
-                        "Musa2",
-                        "Yuxel",
-                        "Jemison",
-                        1.2,
-                        "PD"
-
-                )
-        );
+    return  andiService.getAndis();
     }
 }
