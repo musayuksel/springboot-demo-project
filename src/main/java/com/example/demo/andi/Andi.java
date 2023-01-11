@@ -1,18 +1,27 @@
 package com.example.demo.andi;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "andisdemoproject")
 public class Andi {
+    @Id
+    @SequenceGenerator(
+            name = "andisdemoproject_sequence",
+            sequenceName = "andisdemoproject_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "andisdemoproject _sequence"
+    )
     private Integer id;
 
     private String firstName;
-
     private String lastName;
-
     private String squad;
-
     private double level;
-
     private String role;
-
     public Andi(Integer id, String firstName, String lastName, String squad, double level, String role) {
         this.id = id;
         this.firstName = firstName;
