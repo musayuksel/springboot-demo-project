@@ -40,6 +40,9 @@ public class Andi {
     }
 
 
+    public Andi() {
+    }
+
     public String getAndiInformation() {
         return firstName + " " + lastName + ". Squad: " + squad + ". Level: " + level + ". Role: " + role + ".";
     }
