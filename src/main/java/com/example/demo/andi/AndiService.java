@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 //@Component . more general
 @Service
 public class AndiService {
@@ -12,20 +14,16 @@ public class AndiService {
     public AndiService(AndiRepository andiRepository) {
         this.andiRepository = andiRepository;
     }
-
-
     public List<Andi> getAndis(){
         return andiRepository.findAll();
-//        return List.of(
-//                new Andi(
-//                        1,
-//                        "Musa",
-//                        "Yuxel",
-//                        "Jemison",
-//                        1.1,
-//                        "PD"
-//
-//                )
-//        );
+    }
+    public void addNewAndi(Andi andi) {
+      Optional<Andi> andiEmail = andiRepository
+              .findAndiByEmail(andi.getEmail());
+
+      if(andiEmail.isPresent()){
+          throw  new IllegalStateException("Andi already exist");
+      }
+    andiRepository.save(andi);
     }
 }
