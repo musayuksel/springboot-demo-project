@@ -57,4 +57,28 @@ public class Andi {
     public String getFullName() {
         return firstName + " " + lastName;
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getSquad() {
+        return squad;
+    }
+
+    public double getLevel() {
+        return level;
+    }
+
+    public String getRole() {
+        return role;
+    }
 }
