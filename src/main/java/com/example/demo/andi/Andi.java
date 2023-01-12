@@ -16,14 +16,20 @@ public class Andi {
             generator = "andisdemoproject _sequence"
     )
     private Integer id;
-
+    private String email;
     private String firstName;
     private String lastName;
     private String squad;
     private double level;
     private String role;
-    public Andi(Integer id, String firstName, String lastName, String squad, double level, String role) {
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Andi(Integer id, String email, String firstName, String lastName, String squad, double level, String role) {
         this.id = id;
+        this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.squad = squad;
@@ -31,7 +37,8 @@ public class Andi {
         this.role = role;
     }
 
-    public Andi(String firstName, String lastName, String squad, double level, String role) {
+    public Andi(String email, String firstName, String lastName, String squad, double level, String role) {
+        this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.squad = squad;
@@ -44,7 +51,7 @@ public class Andi {
     }
 
     public String getAndiInformation() {
-        return firstName + " " + lastName + ". Squad: " + squad + ". Level: " + level + ". Role: " + role + ".";
+        return firstName + " " + lastName + " Email: " + email + ". Squad: " + squad + ". Level: " + level + ". Role: " + role + ".";
     }
 
     public String getFullName() {
