@@ -1,9 +1,7 @@
 package com.example.demo.andi;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,8 +16,13 @@ public class AndiController {
 //        this.andiService = new AndiService();//this is not a good practice
         this.andiService =andiService;
     }
-    @GetMapping()
+    @GetMapping
     public List<Andi> andis(){
     return  andiService.getAndis();
+    }
+
+    @PostMapping
+    public void registerNewAndi(@RequestBody Andi andi){
+        andiService.addNewAndi(andi);
     }
 }
