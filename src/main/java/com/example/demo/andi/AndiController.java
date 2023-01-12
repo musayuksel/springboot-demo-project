@@ -1,6 +1,7 @@
 package com.example.demo.andi;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,5 +29,17 @@ public class AndiController {
     @DeleteMapping(path = "{andiId}")
     public void deleteAndi(@PathVariable("andiId") Integer andiId){
         andiService.deleteAndi(andiId);
+    }
+
+    @PutMapping(path = "{andiId}")
+    public void updateAndi(
+            @PathVariable("andiId") Integer andiId,
+//            @RequestParam(required = false) String firstName,
+//            @RequestParam(required = false) String lastName,
+            @RequestParam(required = false) Double level
+//            @RequestParam(required = false) String role,
+//            @RequestParam(required = false) String squad
+    ){
+        andiService.updateAndi(andiId,level);
     }
 }

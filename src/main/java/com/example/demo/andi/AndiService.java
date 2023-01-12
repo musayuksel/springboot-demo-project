@@ -2,6 +2,7 @@ package com.example.demo.andi;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -34,5 +35,16 @@ public class AndiService {
             throw  new IllegalStateException("Andi with id "+ andiId + " does NOT exist...");
         }
         andiRepository.deleteById(andiId);
+    }
+
+    @Transactional
+    public void updateAndi(Integer andiId, Double level) {
+        Andi andi = andiRepository.findById(andiId)
+                .orElseThrow(
+                        ()->new IllegalStateException("andi doesn't exist....")
+                );
+        if(level != null){
+            andi.setLevel(level);
+        }
     }
 }
