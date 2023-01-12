@@ -26,4 +26,13 @@ public class AndiService {
       }
     andiRepository.save(andi);
     }
+
+    public void deleteAndi(Integer andiId) {
+        //add logics here...
+        boolean isAndiExist = andiRepository.existsById(andiId);
+        if(!isAndiExist){
+            throw  new IllegalStateException("Andi with id "+ andiId + " does NOT exist...");
+        }
+        andiRepository.deleteById(andiId);
+    }
 }

@@ -25,4 +25,8 @@ public class AndiController {
     public void registerNewAndi(@RequestBody Andi andi){
         andiService.addNewAndi(andi);
     }
+    @DeleteMapping(path = "{andiId}")
+    public void deleteAndi(@PathVariable("andiId") Integer andiId){
+        andiService.deleteAndi(andiId);
+    }
 }
