@@ -21,15 +21,6 @@ public class AndiConfig {
                         "PD"
 
                 );
-//            Andi musa2 =  new Andi(
-//                    "myux@g",
-//                    "Musa2",
-//                    "Yuxel2",
-//                    "Jemison",
-//                    1.2,
-//                    "PD"
-//
-//            );
             System.out.println(musa);
             andiRepository.saveAll(
                     List.of(musa)
