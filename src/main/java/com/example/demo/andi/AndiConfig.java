@@ -12,7 +12,8 @@ public class AndiConfig {
     CommandLineRunner commandLineRunner(AndiRepository andiRepository){
         return args -> {
             Andi musa =  new Andi(
-                        1,
+                         1,
+                        "myx@gmail.com",
                         "Musa",
                         "Yuxel",
                         "Jemison",
@@ -20,16 +21,18 @@ public class AndiConfig {
                         "PD"
 
                 );
-            Andi musa2 =  new Andi(
-                    "Musa2",
-                    "Yuxel2",
-                    "Jemison",
-                    1.2,
-                    "PD"
-
-            );
+//            Andi musa2 =  new Andi(
+//                    "myux@g",
+//                    "Musa2",
+//                    "Yuxel2",
+//                    "Jemison",
+//                    1.2,
+//                    "PD"
+//
+//            );
+            System.out.println(musa);
             andiRepository.saveAll(
-                    List.of(musa,musa2)
+                    List.of(musa)
             );
         };
     }
