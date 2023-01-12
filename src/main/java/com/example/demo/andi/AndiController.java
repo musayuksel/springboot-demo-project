@@ -31,15 +31,19 @@ public class AndiController {
         andiService.deleteAndi(andiId);
     }
 
+//    @PutMapping(path = "{andiId}")
+//    public void updateAndi(
+//            @PathVariable("andiId") Integer andiId,
+////            @RequestParam(required = false) String firstName,
+////            @RequestParam(required = false) String lastName,
+//            @RequestParam(required = false) Double level
+////            @RequestParam(required = false) String role,
+////            @RequestParam(required = false) String squad
+//    ){
+//        andiService.updateAndi(andiId,level);
+//    }
     @PutMapping(path = "{andiId}")
-    public void updateAndi(
-            @PathVariable("andiId") Integer andiId,
-//            @RequestParam(required = false) String firstName,
-//            @RequestParam(required = false) String lastName,
-            @RequestParam(required = false) Double level
-//            @RequestParam(required = false) String role,
-//            @RequestParam(required = false) String squad
-    ){
-        andiService.updateAndi(andiId,level);
+    public void updateAndiWithBody(@RequestBody Andi andi, @PathVariable("andiId") Integer andiId){
+        andiService.updateAndiWithBody(andiId, andi);
     }
 }
