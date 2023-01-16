@@ -26,4 +26,14 @@ class AndiServiceTest {
         verify(andiRepository, times(1)).findAll();
         verifyNoMoreInteractions(andiRepository);
     }
+
+    @Test
+    void shouldAddNewAndi() {
+        Andi andiToSave = new Andi("unique_email@example.com","Musa", "Yxel", "Endeavour", 1.3, "PD");
+        andiService.addNewAndi(andiToSave);
+        verify(andiRepository, times(1)).findAndiByEmail("unique_email@example.com");
+        verify(andiRepository, times(1)).save(andiToSave);
+        verifyNoMoreInteractions(andiRepository);
+    }
+
 }
