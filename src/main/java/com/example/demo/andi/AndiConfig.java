@@ -8,23 +8,23 @@ import java.util.List;
 
 @Configuration
 public class AndiConfig {
-    @Bean
-    CommandLineRunner commandLineRunner(AndiRepository andiRepository){
-        return args -> {
-            Andi musa =  new Andi(
-                         1,
-                        "myx@gmail.com",
-                        "Musa",
-                        "Yuxel",
-                        "Jemison",
-                        1.1,
-                        "PD"
-
-                );
-            System.out.println(musa);
-            andiRepository.saveAll(
-                    List.of(musa)
-            );
-        };
-    }
+//    @Bean
+//    CommandLineRunner commandLineRunner(AndiRepository andiRepository){
+//        return args -> {
+//            Andi musa =  new Andi(
+//                         1,
+//                        "myx@gmail.com",
+//                        "Musa",
+//                        "Yuxel",
+//                        "Jemison",
+//                        1.1,
+//                        "PD"
+//
+//                );
+//            System.out.println(musa);
+//            andiRepository.saveAll(
+//                    List.of(musa)
+//            );
+//        };
+//    }
 }
