@@ -18,10 +18,13 @@ public class AndiController {
         this.andiService =andiService;
     }
     @GetMapping
+//    public AndisResponse andis(){
+//    return new AndisResponse( andiService.getAndis());
+//    }
     public List<Andi> andis(){
     return  andiService.getAndis();
     }
-
+//    record AndisResponse(List<Andi> andis){}
     @PostMapping
     public void registerNewAndi(@RequestBody Andi andi){
         andiService.addNewAndi(andi);
